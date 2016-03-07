@@ -3,21 +3,24 @@
 </head>
 
 <body>
-	<div class="container">
-        <head>
-		  <h1>Todo List</h1>
+    <div class="container">
+        <h1>Todo List {{incompleteCount}}</h1>
+        
+        <label class="hide-completed">
+            <input type="checkbox" checked="{{hideCompleted}}" />
+            Hide Completed Tasks
+        </label>
 
-          <form class="new-task">
+        <form class="new-task">
             <input type="text" name="text" placeholder="Type to add new tasks" />
-          </form>
-        </head>
+        </form>
 
-	  	<ul>
-	  		{{#each tasks}}
-	  			{{> task}}
-	  		{{/each}}
-	  	</ul>
-  	</div>
+        <ul>
+            {{#each tasks}}
+                {{> task}}
+            {{/each}}
+        </ul>
+    </div>
 </body>
 
 <template name="task">
@@ -28,4 +31,6 @@
 
         <button class="delete">&times;</button>
     </li>
+
+    <div class="render-fix" style="display: none"></div>
 </template>
